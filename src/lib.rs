@@ -1,12 +1,12 @@
 use pyo3::prelude::*;
 
-#[pymodule]
-mod dataforge {
-    use pyo3::prelude::*;
+#[pyfunction]
+fn accelerated_available() -> bool {
+    true
+}
 
-    #[pyclass]
-    struct Dataset {}
-
-    #[pyfunction]
-    fn map(dataset: &Dataset) -> Dataset {}
+#[pyfunction]
+fn _accelerated(m: &Bound<'_, PyModule>) -> PyResult<()> {
+    m.add_function(wrap_pyfunction!(accelerated_available, m)?)?;
+    Ok(())
 }

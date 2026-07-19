@@ -1,15 +1,16 @@
 [build-system]
-requires = ["maturin>=1.13,<2.0", "datasets>=4.8.0"]
+requires = ["maturin>=1.13,<2.0"]
 build-backend = "maturin"
 
 [project]
 name = "dataforge"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 classifiers = [
     "Programming Language :: Rust",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
 ]
+dependencies = ["datasets>=4.8.0"]
 dynamic = ["version"]
 
 [tool.maturin]

@@ -1,5 +1,4 @@
 from __future__ import annotations
-from copyreg import remove_extension
 from datasets import Dataset, DatasetDict
 from .operation import FilterOperation, MapOperation, Operation
 
@@ -25,7 +24,7 @@ class HuggingFaceExecutor:
                     batched=False if operation.batched is None else operation.batched,
                     batch_size=operation.batch_size,
                     num_proc=operation.num_workers,
-                    remove_columns=(operation.remove_columns) or None,
+                    remove_columns=list(operation.remove_columns) or None,
                 )
             elif isinstance(operation, FilterOperation):
                 current = current.filter(

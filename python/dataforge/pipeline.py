@@ -11,7 +11,7 @@ class Pipeline:
         operations: tuple[Operation, ...] = (),
     ) -> None:
         if not isinstance(dataset, (Dataset, DatasetDict)):
-            raise TypeError(f"Expected a Dataset or DatasetDict, got {type(dataset)} instead.")
+            raise TypeError(f"Expected a Hugging Face datasets compatible Dataset or DatasetDict, got {type(dataset)} instead.")
         self._dataset = dataset
         self._operations = operations
 
